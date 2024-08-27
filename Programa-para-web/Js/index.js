@@ -2,11 +2,19 @@ const diaSemana = document.getElementById("dia-semana");
 const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-min-seg");
 
-diaSemana.textContent = "Domingo";
+diaSemana.textContent = getWeekDay();
 diaMesAno.textContent = getCurrentDate();
+horaMinSeg.textContent = getCurrentHour();
 
-function getCurrentDate(){
+function getWeekDay(){
     const date = new Date();
-    return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+   let days = ["domingo", "segunda=feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sabado"];
+   return days[date.getDay()];
 }
+
+function getCurrentHour(){
+    const date = new Date();
+    return date.getHours() + ";" + date.getMinutes() + ";" + date.getSeconds();
+}
+
 
